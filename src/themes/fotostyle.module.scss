@@ -1,0 +1,35 @@
+.foto{
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    width: 700px;
+    .imagem{
+        width: 350px;
+        height: 350px;
+        video,img{
+            height: 100%;
+            width: 100%;
+            object-fit: fill;
+        }
+    }
+    .botoes{
+        display: grid;
+        align-items: center;
+        svg{
+            width: 150px;
+            height: 150px;
+            justify-self: center;
+        }
+        button{
+            font-family: "Open Sans";
+            font-weight: bold;
+            width: 325px;
+            height: 60px;
+            color: #FFF;
+            font-size: 28px;
+            text-align: center;
+            border-radius: 20px;
+            
+        }
+    }
+}

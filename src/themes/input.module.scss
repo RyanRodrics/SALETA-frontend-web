@@ -1,0 +1,26 @@
+.input{
+    .eye{
+        --tam: 50px;
+        position: relative;
+        align-items: center;
+        button{
+            position: absolute;
+            right: 3px;
+            width: var(--tam);
+            height: var(--tam);
+            border-radius: 100%;
+            border:0;
+            padding: 0;
+            background-color: transparent;
+            svg{
+                width: var(--tam);
+                height: var(--tam);
+                padding: 0;
+            }
+        }
+        
+    }
+    input{
+        background-color: #EEE;
+    }
+}

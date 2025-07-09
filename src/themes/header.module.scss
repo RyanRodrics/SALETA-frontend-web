@@ -1,0 +1,49 @@
+.header{
+    display: inline-flex;
+    top: 0;
+    width: 100vw;
+    height: 100px;
+    background-color: #2F9E41;
+    align-items: center;
+    justify-content: center;
+    a{
+        position: absolute;
+        display: flex;
+        left: 0;
+        height: 100px;
+        aspect-ratio: 1/1;
+        align-items: center;
+        justify-content: center;
+        svg{
+            color: black;
+            height: 70%;
+            width: 70%;
+        }
+    }
+    p{
+        color: white;
+        font-family: "Open Sans";
+        font-size: 64px;
+        font-weight: 700;
+        text-align: center;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .header{
+        height: 70px;
+        background-color: #2F9E41;
+        align-items: center;
+        justify-content: center;
+        a{
+            left: 0;
+            height: 70px;
+        }
+        p{
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+        }
+    }
+}

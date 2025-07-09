@@ -1,0 +1,139 @@
+.login,.visitante{
+    display: grid;
+    justify-items: center;
+    row-gap: 23px;
+    width: 100%;
+    height: 100%;
+    font-family: "Open Sans";
+    font-weight: bold;
+    svg{
+        width: 450px;
+        height: 450px;
+    }
+    form{
+        display: grid;
+        row-gap: 16px;
+        justify-items: center;
+        >div{
+            div{
+                display: grid;
+                label{
+                    font-size: 50px;
+                }
+                input{
+                    width: 600px;
+                    height: 50px;
+                    border:1px solid black;
+                    border-radius: 20px;
+                    font-size: 32px;
+                    padding:10px;
+                }
+            }
+            
+        }
+        >button{
+            font-family: "Open Sans";
+            font-weight: bold;
+            width: 700px;
+            height: 60px;
+            background-color: #2F9E41;
+            color: #FFF;
+            font-size: 36px;
+            text-align: center;
+            border-radius: 20px;
+        }
+    }
+    >a{
+        font-size: 36px;
+        text-align: center;
+        color:#000;
+    }
+}
+.visitante{
+    form{
+        display: grid;
+        row-gap: 16px;
+        justify-items: center;
+        >div{
+            div{
+                label{
+                    font-size: 36px;
+                }
+                input{
+                    font-size: 32px;
+                    width: 650px;
+                }
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px){
+    .login,.visitante{
+        // height: calc(100vh - 200px);
+        row-gap: 23px;
+        width: 100vw;
+        height: 100%;
+        svg{
+            width: 60vw;
+            height: 60vw;
+        }
+        form{
+            row-gap: 16px;
+            >div{
+                div{
+                    label{
+                        font-size: 24px;
+                    }
+                    input{
+                        width: 85vw;
+                        height: 5vh;
+                        border:1px solid black;
+                        border-radius: 20px;
+                        font-size: 16px;
+                        padding:10px;
+                    }
+                }
+                
+            }
+            >button{
+                font-family: "Open Sans";
+                font-weight: bold;
+                width: 85vw;
+                height: 6vh;
+                background-color: #2F9E41;
+                color: #FFF;
+                font-size: 24px;
+                text-align: center;
+                border-radius: 20px;
+            }
+        }
+        >a{
+            font-size: 16px;
+            text-align: center;
+            color:#000;
+        }
+    }
+    .visitante{
+        form{
+            display: grid;
+            row-gap: 16px;
+            justify-items: center;
+            >div{
+                div{
+                    label{
+                        font-size: 16px;
+                    }
+                    input{
+                        font-size: 16px;
+                        width: 650px;
+                    }
+    
+                }
+            }
+        }
+    }
+
+
+}
