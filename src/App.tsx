@@ -25,18 +25,19 @@ function App() {
     <>
       <BrowserRouter>
         <div className="rota">
-          <ContextIds.Provider value= {{itemId,setItemId,userId,setUserId,type,setType}}></ContextIds.Provider>
-          <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/itens' element={<Items/>}/>
-            <Route path='/cadastrar-novo-item' element={<NewItemForm/>}/>
-            <Route path='/abrir-porta' element={<Door/>}/>
-            <Route path='/login/guardar' element = {<Login tipo = "guardar" />}/>
-            <Route path='/login/buscar' element = {<Login tipo = "buscar" />}/>
-            <Route path='/sessao/buscar' element={<Session tipo='buscar'/>}/>
-            <Route path='/sessao/guardar' element={<Session tipo = 'guardar'/>}/>
-            <Route path = '/admin/*' element = {<Admin/>}/>
-          </Routes>
+          <ContextIds.Provider value= {{itemId,setItemId,userId,setUserId,type,setType}}>
+            <Routes>
+              <Route path='/' element={<Home/>}/>
+              <Route path='/itens' element={<Items/>}/>
+              <Route path='/cadastrar-novo-item' element={<NewItemForm/>}/>
+              <Route path='/abrir-porta' element={<Door/>}/>
+              <Route path='/login/guardar' element = {<Login tipo = "guardar" />}/>
+              <Route path='/login/buscar' element = {<Login tipo = "buscar" />}/>
+              <Route path='/sessao/buscar' element={<Session tipo='buscar'/>}/>
+              <Route path='/sessao/guardar' element={<Session tipo = 'guardar'/>}/>
+              <Route path = '/admin/*' element = {<Admin/>}/>
+            </Routes>
+          </ContextIds.Provider>
         </div>
       </BrowserRouter>
     </>
