@@ -1,0 +1,16 @@
+/* --- Definição para a Open Sans normal (variável) --- */
+@font-face {
+  font-family: 'Open Sans Variable'; 
+  font-style: normal;
+  font-weight: 300 800;
+  // O caminho agora é relativo a este arquivo
+  src: url('../fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+}
+
+/* --- Definição para a Open Sans em itálico (variável) --- */
+@font-face {
+  font-family: 'Open Sans Variable';
+  font-style: italic;
+  font-weight: 300 800;
+  src: url('../fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+}

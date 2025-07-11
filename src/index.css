@@ -2,3 +2,32 @@
   margin: 0;
   padding: 0;
 }
+
+@font-face {
+  /* 1. Dê um nome para a família da fonte. Use o mesmo para ambas as regras. */
+  font-family: 'Open Sans'; 
+
+  /* 2. Especifique que o estilo desta regra é 'normal'. */
+  font-style: normal;
+
+  /* 3. Para fontes variáveis, você define o intervalo de pesos que o arquivo suporta. */
+  font-weight: 300 800; /* Open Sans geralmente vai de 300 (light) a 800 (extra-bold) */
+
+  /* 4. Especifique o caminho para o arquivo da fonte. */
+  src: url('../fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+}
+
+/* --- Definição para a Open Sans em itálico (variável) --- */
+@font-face {
+  /* 1. Use o MESMO nome de família. */
+  font-family: 'Open Sans';
+
+  /* 2. Especifique que o estilo desta regra é 'italic'. */
+  font-style: italic;
+
+  /* 3. O intervalo de pesos é o mesmo. */
+  font-weight: 300 800;
+
+  /* 4. Especifique o caminho para o arquivo da fonte em itálico. */
+  src: url('../fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+}

@@ -10,6 +10,8 @@ import Door from './pages/Door';
 import Session from './pages/Session';
 import Admin from './pages/Admin';
 
+
+
 export const ContextIds = React.createContext<any>({
   itemId:'',setItemId: () => {},
   userId:'',setUserId: () => {},
@@ -27,14 +29,15 @@ function App() {
         <div className="rota">
           <ContextIds.Provider value= {{itemId,setItemId,userId,setUserId,type,setType}}>
             <Routes>
-              <Route path='/' element={<Home/>}/>
-              <Route path='/itens' element={<Items/>}/>
-              <Route path='/cadastrar-novo-item' element={<NewItemForm/>}/>
-              <Route path='/abrir-porta' element={<Door/>}/>
-              <Route path='/login/guardar' element = {<Login tipo = "guardar" />}/>
-              <Route path='/login/buscar' element = {<Login tipo = "buscar" />}/>
-              <Route path='/sessao/buscar' element={<Session tipo='buscar'/>}/>
-              <Route path='/sessao/guardar' element={<Session tipo = 'guardar'/>}/>
+              <Route path='/*' element={<Home/>}/>
+              <Route path='/itens/*' element={<Items/>}/>
+              <Route path='/cadastrar-novo-item/*' element={<NewItemForm/>}/>
+              <Route path='/abrir-porta/*' element={<Door/>}/>
+              <Route path='/login/guardar/*' element = {<Login tipo = "guardar" />}/>
+              <Route path='/login/buscar/*' element = {<Login tipo = "buscar" />}/>
+              <Route path='/login/admin/*' element = {<Login tipo = "admin" />}/>
+              <Route path='/sessao/buscar/*' element={<Session tipo='buscar'/>}/>
+              <Route path='/sessao/guardar/*' element={<Session tipo = 'guardar'/>}/>
               <Route path = '/admin/*' element = {<Admin/>}/>
             </Routes>
           </ContextIds.Provider>

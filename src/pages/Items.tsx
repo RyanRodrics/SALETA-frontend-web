@@ -22,7 +22,7 @@ function Items() {
     }, []);
       
     async function getItems() {
-        const response = await api.get('/itens');
+        const response = await api.get('/itens/notfound');
         const apiItems: Item[] = response.data;
         setItemList(apiItems);
     }

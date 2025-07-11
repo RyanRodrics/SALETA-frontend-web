@@ -1,8 +1,9 @@
 import type { Sessao } from "../types/adminTypes";
 import themes from "../themes/admin.module.scss"
 import { format } from "date-fns"
-// import api from "../services/api";
 import { API_URL } from "../services/api.ts";
+import AuthenticatedVideoPlayer from "../components/AuthenticatedVideoPlayer.tsx";
+
 const AdminSession: React.FC<{item:Sessao, key:number}>= ({item}) => {
     function mudarCor(type:string){
         return type == "guardar" ? themes.guardar : themes.buscar;
@@ -31,12 +32,7 @@ const AdminSession: React.FC<{item:Sessao, key:number}>= ({item}) => {
         </div>
         </main>
         <div className={themes.itemCam}>
-            <div>
-                <video controls >
-                    <source src={`${API_URL}/video/${item._id}`} type="video/mp4" />
-                    Seu navegador não suporta vídeo HTML5.
-                </video>
-            </div>
+            <AuthenticatedVideoPlayer videoId={item._id} />
             
         </div>
        

@@ -46,6 +46,7 @@ const Session:React.FC<sessionProps> = ({tipo}) => {
                 return false;
             }else{
                 alert("Sessão Encerrada, favor feche a porta");
+                localStorage.removeItem('authToken');
                 return response.data
             }
         }
@@ -53,7 +54,7 @@ const Session:React.FC<sessionProps> = ({tipo}) => {
 
     async function getItem() {
         if (contextIds["itemId"] != "") {
-            const response = await api.get(`/itens/${contextIds["itemId"]}`);
+            const response = await api.get(`/itens/id/${contextIds["itemId"]}`);
             if (response.data) {
                 const apiItem: Item = response.data;
                 setItem(apiItem);

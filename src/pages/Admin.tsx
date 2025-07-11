@@ -12,6 +12,7 @@ import type { Sessao } from "../types/adminTypes";
 import type { sessionUser } from "../types/loginProps";
 import { Routes,Route } from "react-router";
 import AdminSession from "./AdminSession";
+import Stream from "./Stream.tsx";
 function Admin() {
     const [sessaoList, setSessaoList] = useState<Sessao[]>([]);
     // const [itemList, setItemList] = useState<Item[]>([]);
@@ -21,22 +22,32 @@ function Admin() {
     }, []);
       
     async function getSessao() {
+        try{
         const response = await api.get('/sessao');
+        
         const apiSessao: Sessao[] = response.data;
         
         const responseitens = await api.get('/itens');
         const apiItens:Item[] = responseitens.data        
 
         const responseUsers = await api.get('/login/id');
-        const apiUsers:sessionUser[] = responseUsers.data
+        const apiUsers:sessionUser[] = responseUsers.data;
         apiSessao.map((sessao,index)=>{
             sessao.itemImage = apiItens.filter((item) => item._id == sessao.itemId)[0] != undefined ? apiItens.filter((item) => item._id == sessao.itemId)[0].photo : "" ;
             sessao.itemName = apiItens.filter((item) => item._id == sessao.itemId)[0] != undefined ? apiItens.filter((item) => item._id == sessao.itemId)[0].title : "";
             sessao.userName = apiUsers.filter((item) => item._id == sessao.userId)[0] != undefined ? apiUsers.filter((item) => item._id == sessao.userId)[0].user : "";
+            
             sessao.key = index;
         })
         apiSessao.reverse();
         setSessaoList(apiSessao);
+        }catch (error: any) {
+            if(error.response.status === 401) {
+                navigate('/login/admin');
+            }
+            console.error("Erro ao buscar sessões:", error);
+        }
+        
     }
 
     const [busca,setBusca] = useState("")
@@ -62,6 +73,7 @@ function Admin() {
                 {itemListFiltered.map((item,index)=>(
                      <Route path= {`/${item._id}`} element={<AdminSession item = {item} key = {index}/>}/>
                 ))}
+                <Route path="/stream" element = {<Stream/>}/>
                
                 <Route path="/" element = {
                 <>
@@ -70,7 +82,7 @@ function Admin() {
                     </header>
                     <main className={themes.itemMain}>
                         {itemListFiltered.map(item => (
-                            <button onClick={() => {abrirSessao(item._id)}} className={themes.itemButton} key={item.key}>
+                            <button onClick={() => {abrirSessao(item._id)}} className={themes.itemButton} key={item.key} >
                                 <div className={themes.itemCard + " " + mudarCor(item.type) }>
                                     <div className={themes.itemInfo}>
                                         <img src={item.itemImage} alt={item.itemName} />

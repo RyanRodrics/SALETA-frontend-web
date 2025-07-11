@@ -27,12 +27,19 @@ const Login:React.FC<sessionProps> = ({tipo})=>{
         
         
         if(response.data.error){
-            alert(response.data.error);
+            console.log(response.data.error);
             return false;
         }else{
-            alert("Logado com sucesso!");
-            contextIds["setUserId"](response.data[0]._id);
-            return response.data
+            const token = response.data.token;
+            
+            if(token){
+                await localStorage.setItem('authToken', token);
+                console.log('Token armazenado com sucesso!');
+                
+                console.log('Login bem-sucedido!');
+            }
+            contextIds["setUserId"](response.data.user.id);
+            return response.data;
         }
         
     }
@@ -41,7 +48,8 @@ const Login:React.FC<sessionProps> = ({tipo})=>{
         e.preventDefault();
         
         // Dados que serão enviados no POST
-        if( await postUsers()){
+        const response = await postUsers()
+        if( response){
             console.log("LOGADO")
             
             switch(tipo){
@@ -54,15 +62,26 @@ const Login:React.FC<sessionProps> = ({tipo})=>{
                     contextIds["setType"]("guardar");
                     navigate("/cadastrar-novo-item")
                     break;
+                case "admin":
+                    if(response.user.role !== "admin" && response.user.role !== "guard") {
+                        alert("Acesso negado. Você não tem permissão para acessar a área administrativa.");
+                        return;
+                    }
+                    navigate("/admin");
+                    break;
                 default:
                     break;
             }
         }
         
       };
+    function changeColor(tipo:string){
+        if(tipo == "admin") return "#1E0BFF";
+        return "#2F9E41";
+    }
     return (
         <>
-        <Header titulo="LOGIN"/>
+        <Header titulo="LOGIN" color = {changeColor(tipo)} />
         <Routes>
             <Route path="/" element =  {
                 <main className={style.login}> 
@@ -78,7 +97,7 @@ const Login:React.FC<sessionProps> = ({tipo})=>{
                             </ContextLogin.Provider>
                         </div>
                         
-                        <button type="submit">Entrar</button>
+                        <button type="submit" style={{backgroundColor:changeColor(tipo)}}>Entrar</button>
                     </form>
                     {/* <a href="/login/visitante">Visitante?</a> */}
                 </main>
