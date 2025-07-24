@@ -1,3 +1,4 @@
+@import '../main.scss';
 .foto{
     display: flex;
     align-content: center;
@@ -21,7 +22,7 @@
             justify-self: center;
         }
         button{
-            font-family: "Open Sans";
+            font-family: $font-primary;
             font-weight: bold;
             width: 325px;
             height: 60px;

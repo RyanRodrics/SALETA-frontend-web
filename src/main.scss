@@ -1,0 +1,14 @@
+// 1. Importa o arquivo parcial de fontes. Não precisa do underscore nem da extensão.
+@import 'fonts';
+
+// 2. (Opcional, mas recomendado) Crie uma variável para sua fonte principal.
+$font-primary: 'Open Sans Variable', sans-serif;
+
+// 3. (Opcional) Adicione outros estilos globais aqui, como resets.
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} 

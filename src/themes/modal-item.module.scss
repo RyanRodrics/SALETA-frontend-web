@@ -1,3 +1,4 @@
+@import '../main.scss';
 .modalOverlay{
     position: fixed;
     inset: 0px;
@@ -17,7 +18,7 @@
     max-width: 300px;
     height: auto;
     place-self: center;
-    font-family: "Open Sans";
+    font-family: $font-primary;
     h1{
         font-size: 36px;
         justify-self: center;
@@ -58,7 +59,7 @@
             width: auto;
             min-width: 45%;
             padding: 8px 4px 8px 4px;
-            font-family: "Open Sans";
+            font-family: $font-primary;
             font-size: 15px;
             font-weight: bold;
             color: white;

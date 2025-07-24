@@ -1,3 +1,4 @@
+@import '../main.scss';
 .home{
     height: calc(100vh - 100px);
     width: 100vw;
@@ -32,7 +33,7 @@
         }
         p{
             -webkit-text-stroke: 1px #000000;
-            font-family: "Open Sans";
+            font-family: $font-primary;
             color: white;
             font-size: 48px;
             font-weight: 700;

@@ -1,10 +1,11 @@
+@import '../main.scss';
 .login,.visitante{
     display: grid;
     justify-items: center;
     row-gap: 23px;
     width: 100%;
     height: 100%;
-    font-family: "Open Sans";
+    font-family: $font-primary;
     font-weight: bold;
     svg{
         width: 450px;
@@ -32,7 +33,7 @@
             
         }
         >button{
-            font-family: "Open Sans";
+            font-family: $font-primary;
             font-weight: bold;
             width: 700px;
             height: 60px;
@@ -98,7 +99,7 @@
                 
             }
             >button{
-                font-family: "Open Sans";
+                font-family: $font-primary;
                 font-weight: bold;
                 width: 85vw;
                 height: 6vh;
